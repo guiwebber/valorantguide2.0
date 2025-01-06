@@ -1,0 +1,25 @@
+.containerHome {
+    display: flex;
+    border: 1px solid red;
+    height: 92vh;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.containerHome .textHome {
+    width: 25%;
+}
+
+.h1logo {
+    color: var(--primary-color);
+}
+
+.containerHome .imgHome {
+    width: 25%;
+    display: flex;
+    height: 70%;
+    justify-content: center;
+    align-items: baseline;
+}

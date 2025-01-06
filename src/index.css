@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "Valorant Font";
+    src: url(../Valorant\ Font.ttf);
+}
+
+:root {
+    --primary-color: rgb(253, 69, 86);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Valorant Font";
+    list-style: none;
+    text-decoration: none;
+}

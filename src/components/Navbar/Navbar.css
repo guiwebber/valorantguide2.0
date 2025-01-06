@@ -1,0 +1,105 @@
+.containerNavbar {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #302f2f;
+  height: 80px;
+  align-items: center;
+  border-bottom: 5px solid var(--primary-color);
+}
+.divLogo .logo,
+.divLogo .span {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--primary-color);
+  font-size: 2rem;
+  animation: logo 3s infinite ease-in-out;
+}
+
+.divLogo .span {
+  font-size: 1.2rem;
+  text-align: center;
+  letter-spacing: 7px;
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 20px;
+}
+
+.nav .linksNav {
+  color: white;
+  margin: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.linksNav::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s;
+  box-shadow: 1px 1px 100px var(--primary-color);
+  box-shadow: 0px -2px 10px var(--primary-color);
+}
+.linksNav:hover {
+  color: var(--primary-color);
+  transition: 0.5s;
+}
+
+.linksNav:hover::after {
+  width: 100%;
+}
+
+.navList {
+  display: flex;
+}
+.download a {
+  cursor: pointer;
+}
+
+.btnDownload {
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid var(--primary-color);
+  transition: 0.5s;
+}
+
+.btnDownload:hover {
+  background-color: var(--primary-color);
+}
+.btnDownload a {
+  padding: 10px 20px 10px 10px;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--primary-color);
+  transition: .5s;
+  font-size: 1.2rem;
+}
+
+.btnDownload .iconDownload {
+  margin: 0 10px;
+  color: var(--primary-color);
+  transition: .5s;
+}
+.btnDownload:hover > a > .iconDownload, .btnDownload:hover > a {
+  color: white;
+  -webkit-text-stroke: 0px;
+  transition: .5s;
+}
+
+@keyframes logo {
+  0% {
+    text-shadow: 1px 1px 7px var(--primary-color);
+  }
+
+  50% {
+    text-shadow: none;
+  }
+  100% {
+    text-shadow: 1px 1px 7px var(--primary-color);
+  }
+}

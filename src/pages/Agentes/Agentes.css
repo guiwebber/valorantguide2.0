@@ -1,0 +1,32 @@
+.container {
+    text-align: center;
+}
+
+.container h1 {
+    margin: 10px;
+}
+.containerAgentes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.divAgente {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Duelist {
+    background-color: brown;
+}
+
+
+.imgAgente {
+  width: 300px;
+}
+
+.nameAgente {
+}
