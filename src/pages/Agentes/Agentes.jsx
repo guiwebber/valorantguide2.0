@@ -36,8 +36,8 @@ function Agentes() {
               key={agente.uuid}
               onClick={() => handleClick(agente)} // Ao clicar, abre o modal
             >
-              <img className="imgAgente" src={agente.fullPortraitV2} alt="" />
               <h1 className="nameAgente">{agente.displayName}</h1>
+              <img className="imgAgente" src={agente.fullPortraitV2} alt="" />
               <p>{agente.role.displayName}</p>
               <img className="imgRole" src={agente.role.displayIcon} alt="" />
             </div>

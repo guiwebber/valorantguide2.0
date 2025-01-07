@@ -1,16 +1,34 @@
+.container {
+  background-color: var(--secondary-color);
+}
 .containerArmas {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  width: auto;
+  padding: 10px;
 }
 .divArmas {
-    border-radius: 20px;
-  width: auto;
-  margin: 10px;
-    padding: 10px;
-    background-color: #adabab;
-    color: rgb(8, 8, 8);
+  color: rgb(8, 8, 8);
+  width: 250px;
+  height: 350px;
+  margin: 50px;
+  border: 3px solid var(--primary-color);
+  border-radius: 20px;
+  padding: 20px;
+  transition: 0.5s;
+  background-color: #6d6c6c;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.divArmas:hover {
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
 .nomeArma {
@@ -19,4 +37,76 @@
 
 .imgArma {
   width: 200px;
+}
+
+.preco {
+  margin: 20px;
+}
+
+/* Estilos do Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.nameAgenteModal {
+  position: relative;
+  width: min-content;
+  height: auto;
+  margin: auto;
+}
+
+.nameAgenteModal:after {
+  content: " ";
+  width: 80%;
+  height: 2px;
+  position: absolute;
+  bottom: 20px;
+  background-color: var(--primary-color);
+  
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.conteudoModal {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  position: relative;
+}
+.conteudoModal p {
+  color: white;
+}
+
+.conteudoModal .nameAgenteModal {
+  color: var(--primary-color);
+}
+
+.modalImg {
+  width: 100%;
+  max-width: 400px;
+}
+
+.btnFechar {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnFechar:hover {
+  background-color: var(--primary-color);
 }

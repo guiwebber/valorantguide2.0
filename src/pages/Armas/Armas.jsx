@@ -3,6 +3,7 @@ import "./Armas.css";
 import { useEffect, useState } from "react";
 function Armas() {
   const [data, setData] = useState([]);
+  const [selectedArma, setSelectedArma] = useState(null);
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -14,17 +15,50 @@ function Armas() {
   }, []);
   const armas = data.data || [];
 
+  const handleClick = (arma) => {
+    setSelectedArma(arma);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedArma(null); // Fecha o modal, limpando o agente selecionado
+  };
+
   console.log(armas);
   return (
-    <div className="containerArmas">
-      {armas.map((arma) => {
-        return (
-          <div className="divArmas" key={arma.uuid}>
-            <p className="nomeArma">{arma.displayName}</p>
-            <img className="imgArma" src={arma.displayIcon} alt={arma.DisplayName} />
+    <div className="container">
+      <h1>Armas</h1>
+      <div className="containerArmas">
+        {armas.map((arma) => {
+          const price = arma.shopData ? arma.shopData.cost : "0";
+          return (
+            <div  className="divArmas" onClick={() => handleClick(arma)} key={arma.uuid}>
+              <h1 className="nomeArma">{arma.displayName}</h1>
+              <img
+                className="imgArma"
+                src={arma.displayIcon}
+                alt={arma.DisplayName}
+              />
+              <p className="preco">
+                <b>Price:</b> {price}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* MODAL */}
+
+      {selectedArma && (
+        <div className="modal" onClick={handleCloseModal}>
+          <div className="conteudoModal" onClick={(e) => e.stopPropagation()}>
+            <img className="modalImg" src={selectedArma.displayIcon} alt="" />
+            <h1 className="nameAgenteModal">{selectedArma.displayName}</h1>
+            <button className="btnFechar" onClick={handleCloseModal}>
+              Fechar
+            </button>
           </div>
-        );
-      })}
+        </div>
+      )}
     </div>
   );
 }

@@ -6,6 +6,8 @@
 :root {
   --primary-color: rgb(253, 69, 86);
   --secondary-color: #302f2f ;
+
+  --third-color: #555555;
 }
 * {
   margin: 0;
