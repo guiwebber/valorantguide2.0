@@ -1,0 +1,22 @@
+.containerArmas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.divArmas {
+    border-radius: 20px;
+  width: auto;
+  margin: 10px;
+    padding: 10px;
+    background-color: #adabab;
+    color: rgb(8, 8, 8);
+}
+
+.nomeArma {
+  text-align: center;
+}
+
+.imgArma {
+  width: 200px;
+}

@@ -1,0 +1,17 @@
+.containerMapas {
+    display: flex;
+    flex-wrap: wrap;
+}
+.divMapa {
+    border: 2px solid red;
+    margin: 10px auto;
+
+}
+
+.nomeMapa {
+text-align: center;
+}
+
+.imgMapa {
+    width: 450px;
+}
