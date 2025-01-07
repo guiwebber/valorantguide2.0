@@ -1,17 +1,42 @@
+.container {
+  background-color: var(--secondary-color);
+}
 .containerMapas {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 .divMapa {
-    border: 2px solid red;
-    margin: 10px auto;
-
+  border: 3px solid var(--primary-color);
+  margin: 10px auto;
+  color: white;
+  padding: 20px;
+  background-color: #555555;
+  width: 600px;
+  height: 600px;
 }
 
 .nomeMapa {
-text-align: center;
+  text-align: center;
+}
+.imagesMapas {
+  position: relative;
+}
+.mapaAberto {
+  width: 450px;
+  z-index: 22;
+  position: absolute;
+  width: 505px;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: none;
 }
 
 .imgMapa {
-    width: 450px;
+    position: absolute;
+  width: 555px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }

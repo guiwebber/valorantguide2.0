@@ -17,18 +17,62 @@ function Armas() {
       (mapa) =>
         mapa.displayName != "The Range" && mapa.displayName != "Basic Training"
     ) || [];
-    
+
+  const competitiveMaps =
+    mapas?.filter((competitiveMap) =>
+      [
+        "Split",
+        "Breeze",
+        "Ascent",
+        "Icebox",
+        "Pearl",
+        "Haven",
+        "Lotus",
+        "Sunset",
+        "Abyss",
+        "Bind",
+        "Fracture",
+      ].includes(competitiveMap.displayName)
+    ) || [];
+  const tdmMaps =
+    mapas?.filter((tdmMaps) =>
+      ["Kasbah", "Glitch", "Piazza", "Drift", "District"].includes(
+        tdmMaps.displayName
+      )
+    ) || [];
+
   console.log(mapas);
   return (
-    <div className="containerMapas">
-      {mapas.map((mapa) => {
-        return (
-          <div className="divMapa" key={mapa.uuid}>
-            <h1 className="nomeMapa">{mapa.displayName}</h1>
-            <img className="imgMapa" src={mapa.splash} alt="" />
+    <div className="containerMainMaps">
+      <div className="container">
+        <h1>Competitive maps</h1>
+        <div className="containerMapas">
+          {competitiveMaps.map((mapa) => {
+            return (
+              <div className="divMapa" key={mapa.uuid}>
+                <h1 className="nomeMapa">{mapa.displayName}</h1>
+                <div className="imagesMapas">
+                <img className="imgMapa" src={mapa.splash} alt="" />
+                <img className="mapaAberto" src={mapa.displayIcon} alt=""  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="container">
+          <h1>Team deathmatch maps</h1>
+          <div className="containerMapas">
+            {tdmMaps.map((mapa) => {
+              return (
+                <div className="divMapa" key={mapa.uuid}>
+                  <h1 className="nomeMapa">{mapa.displayName}</h1>
+                  <img className="imgMapa" src={mapa.splash} alt="" />
+                </div>
+              );
+            })}
           </div>
-        );
-      })}
+        </div>
+      </div>
     </div>
   );
 }
