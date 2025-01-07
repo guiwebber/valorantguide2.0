@@ -1,7 +1,7 @@
 .containerNavbar {
   display: flex;
   justify-content: space-evenly;
-  background-color: #302f2f;
+  background-color: var(--secondary-color);
   height: 80px;
   align-items: center;
   border-bottom: 5px solid var(--primary-color);

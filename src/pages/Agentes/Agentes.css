@@ -1,9 +1,12 @@
 .container {
-    text-align: center;
+  text-align: center;
+
+  background-color: var(--secondary-color);
 }
 
 .container h1 {
-    margin: 10px;
+  padding: 20px;
+  color: white;
 }
 .containerAgentes {
   display: flex;
@@ -12,21 +15,109 @@
   align-items: center;
 }
 .divAgente {
-  border: 1px solid red;
+  border: 3px solid var(--primary-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 20px;
+  border-radius: 30px;
+  color: white;
 }
 
 .Duelist {
-    background-color: brown;
+  background-color: #555555;
 }
 
+.Initiator {
+  background-color: #555555;
+}
+
+.Controller {
+  background-color: #555555;
+}
+
+.Sentinel {
+  background-color: #555555;
+}
 
 .imgAgente {
   width: 300px;
 }
 
-.nameAgente {
+.divAgente {
+  transition: transform 0.3s;
+}
+
+.divAgente:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.divAgente:hover > h1 {
+  color: var(--primary-color);
+ }
+
+.imgRole {
+  width: 50px;
+  margin: 10px;
+  color: black;
+}
+
+/* Estilos do Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.nameAgenteModal {
+  position: relative;
+  width: min-content;
+  height: auto;
+  margin: auto;
+}
+
+.nameAgenteModal:after {
+  content: " ";
+  width: 80%; /* A largura da linha pode ser maior ou ajustada conforme necessário */
+  height: 2px; /* A altura da linha */
+  position: absolute; /* Posiciona de forma absoluta dentro do elemento */
+  bottom: 20px; /* Coloca a linha na parte inferior */
+  left: 18px; /* Alinha a linha à esquerda (ajuste conforme necessário) */
+  background-color: var(--primary-color);
+}
+
+.conteudoModal {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  position: relative;
+  color: white;
+}
+
+.modalImg {
+  width: 100%;
+  max-width: 400px;
+}
+
+.btnFechar {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnFechar:hover {
+  background-color: var(--primary-color);
 }

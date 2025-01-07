@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Agentes.css";
-import { useEffect, useState } from "react";
+
 function Agentes() {
   const [data, setData] = useState([]);
+  const [selectedAgent, setSelectedAgent] = useState(null); // Novo estado para armazenar o agente selecionado
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -12,10 +13,17 @@ function Agentes() {
     };
     fetchdata();
   }, []);
+
   const agentes =
     data.data?.filter((agente) => agente.isPlayableCharacter === true) || [];
 
-  console.log(agentes);
+  const handleClick = (agente) => {
+    setSelectedAgent(agente); // Atualiza o estado com o agente clicado
+  };
+
+  const handleCloseModal = () => {
+    setSelectedAgent(null); // Fecha o modal, limpando o agente selecionado
+  };
 
   return (
     <div className="container">
@@ -23,14 +31,38 @@ function Agentes() {
       <div className="containerAgentes">
         {agentes.map((agente) => {
           return (
-            <div className={`divAgente ${agente.role.displayName}`} key={agente.uuid}>
+            <div
+              className={`divAgente ${agente.role.displayName}`}
+              key={agente.uuid}
+              onClick={() => handleClick(agente)} // Ao clicar, abre o modal
+            >
               <img className="imgAgente" src={agente.fullPortraitV2} alt="" />
               <h1 className="nameAgente">{agente.displayName}</h1>
               <p>{agente.role.displayName}</p>
+              <img className="imgRole" src={agente.role.displayIcon} alt="" />
             </div>
           );
         })}
       </div>
+
+      {/* Modal */}
+      {selectedAgent && (
+        <div className="modal" onClick={handleCloseModal}>
+          <div className="conteudoModal" onClick={(e) => e.stopPropagation()}>
+            <img
+              className="modalImg"
+              src={selectedAgent.fullPortraitV2}
+              alt={selectedAgent.displayName}
+            />
+            <h1 className="nameAgenteModal">{selectedAgent.displayName}</h1>
+            <p>{selectedAgent.role.displayName}</p>
+            <p>{selectedAgent.description}</p>
+            <button className="btnFechar" onClick={handleCloseModal}>
+              Fechar
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
