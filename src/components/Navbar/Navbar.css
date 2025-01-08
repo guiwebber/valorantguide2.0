@@ -214,6 +214,10 @@
     transition: 0.5s;
     height: 10vh;
     justify-content: space-between;
+    position:sticky;
+    top: 0;
+    width: 100%;
+    z-index: 22;
   }
 
   .download {
