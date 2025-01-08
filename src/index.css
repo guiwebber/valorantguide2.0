@@ -31,3 +31,8 @@
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary-color);
 }
+
+html {
+  max-width: 99%;
+  border: 2px solid green;
+}
