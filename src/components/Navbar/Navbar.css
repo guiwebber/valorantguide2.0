@@ -214,10 +214,12 @@
     transition: 0.5s;
     height: 10vh;
     justify-content: space-between;
-    position:sticky;
+    position:fixed;
     top: 0;
     width: 100%;
     z-index: 22;
+    
+    /* max-width: 90%; */
   }
 
   .download {
@@ -259,7 +261,7 @@
   }
 
   .true {
-    height: 100vh;
+    height: 93.4vh;
     flex-direction: column;
     transition: 0.5s;
   }
@@ -272,9 +274,11 @@
 
   .true .nav {
     display: block;
-    max-height: 500px;
+    max-height: 600px;
     opacity: 1;
-    margin-top: 30%;
+    border: 1px solid red;
+    margin-top: 25%;
+    padding: 20px;
   }
 
   .true .nav ul {
@@ -285,8 +289,7 @@
     margin: 15px;
     font-size: 1.5rem;
     text-align: center;
-    margin: 15px;
-    padding: 20px;
+    margin: 25px;
   }
 
   .true .nav ul li a {

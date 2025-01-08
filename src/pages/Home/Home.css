@@ -23,3 +23,22 @@
     justify-content: center;
     align-items: baseline;
 }
+
+@media (max-width:1000px) {
+    .containerHome {
+        flex-direction: column;
+        margin-top: 100px;
+        justify-content: center;
+        align-items: center;
+        /* max-width: 90%; */
+    }
+    .containerHome .textHome {
+        width: 80%;
+    }
+
+    .imgHome {
+        border: 1px solid red;
+        width: 80% !important;
+        margin: 0 auto !important;
+    }
+}
