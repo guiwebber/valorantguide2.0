@@ -219,7 +219,7 @@
     width: 100%;
     z-index: 22;
     
-    /* max-width: 90%; */
+    max-width: 90%; 
   }
 
   .download {
