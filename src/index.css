@@ -1,8 +1,7 @@
 @font-face {
-  font-family: 'Valorant Font';
-  src: url('/ValorantFont.ttf') format('truetype');
+  font-family: "Valorant Font";
+  src: url("/ValorantFont.ttf") format("truetype");
 }
-
 
 :root {
   --primary-color: rgb(253, 69, 86);
@@ -33,7 +32,6 @@
 }
 
 html {
-  max-width: 99%;
-  border: 2px solid green;
+  max-width: 100%;
   overflow: hidden;
 }
