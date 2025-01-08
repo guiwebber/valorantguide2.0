@@ -11,8 +11,6 @@
   color: white;
   padding: 20px;
   background-color: #555555;
-  width: 600px;
-  height: 600px;
 }
 
 .nomeMapa {
@@ -22,10 +20,8 @@
   position: relative;
 }
 .mapaAberto {
-  width: 450px;
   z-index: 22;
   position: absolute;
-  width: 505px;
   top: 0;
   left: 0;
   right: 0;
@@ -34,7 +30,6 @@
 }
 
 .imgMapa {
-    position: absolute;
   width: 555px;
   left: 0;
   right: 0;

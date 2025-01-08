@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Valorant Font";
-  src: url(../Valorant\ Font.ttf);
+  src: url("./ValorantFont.ttf");
 }
 
 :root {
   --primary-color: rgb(253, 69, 86);
-  --secondary-color: #302f2f ;
+  --secondary-color: #302f2f;
 
   --third-color: #555555;
 }
@@ -19,15 +19,14 @@
 }
 
 ::-webkit-scrollbar {
-    width: 5px; 
-    height: 8px; 
-  }
-  
-  ::-webkit-scrollbar-track {
-    background-color: var(--secondary-color);
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-  }
-  
+  width: 5px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+}
