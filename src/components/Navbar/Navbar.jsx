@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
@@ -15,6 +15,14 @@ function Navbar() {
       setIsChecked(false)
     
   }
+
+  useEffect(() => {
+    if (isChecked) {
+      document.body.style.overflow = "hidden"; // Bloqueia o scroll
+    } else {
+      document.body.style.overflow = "auto"; // Permite o scroll
+    }
+  }, [isChecked]); // A dependência é o isChecked
 
   return (
     <div className={`containerNavbar containerMobile ${isChecked}`}>
