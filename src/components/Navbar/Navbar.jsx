@@ -14,20 +14,6 @@ function Navbar() {
     setIsChecked(false);
   }
 
-  // Impede o scroll quando o menu estiver aberto
-  useEffect(() => {
-    if (isChecked) {
-      document.body.style.overflow = "hidden"; // Bloqueia o scroll
-    } else {
-      document.body.style.overflow = "auto"; // Permite o scroll
-    }
-
-    // Limpeza do efeito quando o componente for desmontado
-    return () => {
-      document.body.style.overflow = "auto"; // Garante que o scroll esteja disponível quando o componente for removido da DOM
-    };
-  }, [isChecked]); // A dependência é o isChecked
-
   return (
     <div className={`containerNavbar containerMobile ${isChecked ? 'true' : 'false'}`}>
       <div className="divLogo">
