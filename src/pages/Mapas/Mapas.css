@@ -6,6 +6,8 @@
 .containerMapas {
   display: flex;
   flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
 }
 .divMapa {
   border: 3px solid var(--primary-color);
@@ -41,5 +43,9 @@
 @media (max-width: 1000px) {
   .containerMapas {
     margin-top: 40px;
+  }
+
+  .imgMapa {
+    width: 100%;
   }
 }
