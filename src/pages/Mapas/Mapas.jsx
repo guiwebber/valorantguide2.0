@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./Mapas.css";
+
 function Armas() {
   const [data, setData] = useState([]);
 
@@ -12,10 +13,11 @@ function Armas() {
     };
     fetchdata();
   }, []);
+
   const mapas =
     data.data?.filter(
       (mapa) =>
-        mapa.displayName != "The Range" && mapa.displayName != "Basic Training"
+        mapa.displayName !== "The Range" && mapa.displayName !== "Basic Training"
     ) || [];
 
   const competitiveMaps =
@@ -34,6 +36,7 @@ function Armas() {
         "Fracture",
       ].includes(competitiveMap.displayName)
     ) || [];
+
   const tdmMaps =
     mapas?.filter((tdmMaps) =>
       ["Kasbah", "Glitch", "Piazza", "Drift", "District"].includes(
@@ -41,7 +44,6 @@ function Armas() {
       )
     ) || [];
 
-  console.log(mapas);
   return (
     <div className="containerMainMaps">
       <div className="container">
@@ -52,13 +54,24 @@ function Armas() {
               <div className="divMapa" key={mapa.uuid}>
                 <h1 className="nomeMapa">{mapa.displayName}</h1>
                 <div className="imagesMapas">
-                <img className="imgMapa" src={mapa.splash} alt="" />
-                <img className="mapaAberto" src={mapa.displayIcon} alt=""  />
+                  <img
+                    className="imgMapa"
+                    src={mapa.splash}
+                    alt={mapa.displayName}
+                    loading="lazy" // Lazy loading aqui
+                  />
+                  <img
+                    className="mapaAberto"
+                    src={mapa.displayIcon}
+                    alt={mapa.displayName}
+                    loading="lazy" // Lazy loading aqui
+                  />
                 </div>
               </div>
             );
           })}
         </div>
+
         <div className="container">
           <h1>Team deathmatch maps</h1>
           <div className="containerMapas">
@@ -66,7 +79,12 @@ function Armas() {
               return (
                 <div className="divMapa" key={mapa.uuid}>
                   <h1 className="nomeMapa">{mapa.displayName}</h1>
-                  <img className="imgMapa" src={mapa.splash} alt="" />
+                  <img
+                    className="imgMapa"
+                    src={mapa.splash}
+                    alt={mapa.displayName}
+                    loading="lazy" // Lazy loading aqui
+                  />
                 </div>
               );
             })}
