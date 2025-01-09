@@ -212,7 +212,7 @@
   .containerMobile {
     display: flex;
     transition: 0.5s;
-    height: 10vh;
+    height: 100px;
     justify-content: space-between;
     position: fixed;
     top: 0;
