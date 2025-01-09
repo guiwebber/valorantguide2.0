@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
 import "./Navbar.css";
@@ -14,23 +14,9 @@ function Navbar() {
     setIsChecked(false);
   }
 
-  // Impede o scroll quando o menu estiver aberto
-  useEffect(() => {
-    if (isChecked) {
-      document.body.style.overflow = "hidden"; // Bloqueia o scroll
-    } else {
-      document.body.style.overflow = "auto"; // Permite o scroll
-    }
-
-    // Limpeza do efeito quando o componente for desmontado
-    return () => {
-      document.body.style.overflow = "auto"; // Garante que o scroll esteja disponível quando o componente for removido da DOM
-    };
-  }, [isChecked]); // A dependência é o isChecked
-
-  // Função para impedir a propagação do evento de clique
+  // Função para impedir a propagação do evento de clique no menu
   const handleStopPropagation = (e) => {
-    e.stopPropagation();
+    e.stopPropagation();  // Impede que o clique dentro do menu se propague para a página
   };
 
   return (
@@ -96,10 +82,10 @@ function Navbar() {
         <span className="menuHamburguer"></span>
       </div>
 
-      {/* Adicionando o evento de stopPropagation ao menu mobile */}
+      {/* Adicionando o evento de stopPropagation no menu mobile */}
       <div
         className={`mobOpen ${isChecked ? 'show' : ''}`}
-        onClick={handleStopPropagation} // Impede que o clique no menu mobile afete o scroll
+        onClick={handleStopPropagation} // Impede que o clique afete o scroll
       >
         <div className="nav">
           <ul className="navList">
