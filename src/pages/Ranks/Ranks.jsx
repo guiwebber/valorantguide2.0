@@ -35,6 +35,7 @@ function Armas() {
           <div className="divRanks" key={index}>
             <h1 className="nameRanks">{tier.tierName}</h1>
             <img className="imgRanks" src={tier.largeIcon} alt="" />
+            <p className="textTier">Tier: <span className="red">{tier.tier - 2}</span></p>
           </div>
         );
       })}

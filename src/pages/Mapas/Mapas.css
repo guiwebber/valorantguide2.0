@@ -1,5 +1,7 @@
 .container {
   background-color: var(--secondary-color);
+  width: 100%;
+  min-height: 100vh;
 }
 .containerMapas {
   display: flex;
@@ -34,4 +36,10 @@
   left: 0;
   right: 0;
   margin: auto;
+}
+
+@media (max-width: 1000px) {
+  .containerMapas {
+    margin-top: 40px;
+  }
 }

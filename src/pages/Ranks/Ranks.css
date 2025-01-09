@@ -3,16 +3,51 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  background-color: var(--secondary-color);
+  min-height: 100vh;
 }
 
 .divRanks {
   text-align: center;
   margin: 20px;
+  padding: 20px;
+  border: 3px solid var(--primary-color);
+  background-color: var(--third-color);
+  color: #FFF;
+  border-radius: 30px;
+  flex-basis: 30%;
+  box-sizing: border-box;
 }
 
 .nameRanks {
+  margin: 20px 20px 40px 20px;
 }
 
 .imgRanks {
   width: 200px;
+}
+
+.textTier {
+  font-size: 1.3rem;
+  margin: 10px;
+}
+
+.red {
+  color: var(--primary-color);
+}
+
+@media (max-width: 1000px) {
+  .containerRanks {
+    margin-top: 100px;
+  }
+
+  .divRanks {
+    flex-basis: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .divRanks {
+    flex-basis: 100%;
+  }
 }

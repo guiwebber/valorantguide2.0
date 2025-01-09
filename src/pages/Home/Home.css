@@ -1,10 +1,10 @@
 .containerHome {
   display: flex;
-  border: 1px solid red;
-  height: 92vh;
+  min-height: 100vh;
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
+  background-color: var(--secondary-color);
 }
 
 .containerHome .textHome {
@@ -23,6 +23,16 @@
   align-items: baseline;
 }
 
+.textHome h2, .textHome p {
+  color: white;
+}
+.textHome h1 {
+  margin: 5px 0;
+}
+.textHome p {
+  margin: 30px 0;
+}
+
 @media (max-width: 1000px) {
   .containerHome {
     flex-direction: column;
@@ -38,7 +48,6 @@
   }
 
   .imgHome {
-    border: 1px solid red;
     width: 80% !important;
     margin: 0 auto !important;
   }

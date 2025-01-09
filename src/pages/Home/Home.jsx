@@ -7,10 +7,13 @@ function Home() {
       <div className="textHome">
         <h2>Bem vindo ao</h2>
         <h1 className="h1logo">VALORANT GUIDE</h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga error enim
-        repellendus reprehenderit quia, illo adipisci ad dolor ullam quis
-        asperiores? Unde, aperiam tempore debitis eveniet dolorem sequi sapiente
-        at!
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga error
+          enim repellendus reprehenderit quia, illo adipisci ad dolor ullam quis
+          asperiores? Unde, aperiam tempore debitis eveniet dolorem sequi
+          sapiente at!
+        </p>
       </div>
       <div className="imgHome">
         <img src={brim} alt="IMG brimstone" />

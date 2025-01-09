@@ -11,6 +11,11 @@ function Navbar() {
     setIsChecked(e.target.checked); // Atualiza o estado baseado no checkbox
   };
 
+  function handleMobOpen() {
+      setIsChecked(false)
+    
+  }
+
   return (
     <div className={`containerNavbar containerMobile ${isChecked}`}>
       <div className="divLogo">
@@ -23,32 +28,32 @@ function Navbar() {
       <div className="nav">
         <ul className="navList">
           <li>
-            <Link className="linksNav" to="/">
+            <Link onClick={handleMobOpen} className="linksNav" to="/">
               Home
             </Link>
           </li>
           <li>
-            <Link className="linksNav" to="/agentes">
+            <Link onClick={handleMobOpen} className="linksNav" to="/agentes">
               Agentes
             </Link>
           </li>
           <li>
-            <Link className="linksNav" to="/armas">
+            <Link onClick={handleMobOpen} className="linksNav" to="/armas">
               Armas
             </Link>
           </li>
           <li>
-            <Link className="linksNav" to="/mapas">
+            <Link onClick={handleMobOpen} className="linksNav" to="/mapas">
               Mapas
             </Link>
           </li>
           <li>
-            <Link className="linksNav" to="/ranks">
+            <Link onClick={handleMobOpen} className="linksNav" to="/ranks">
               Ranks
             </Link>
           </li>
           <li>
-            <Link className="linksNav" to="/sobre">
+            <Link onClick={handleMobOpen} className="linksNav" to="/sobre">
               Sobre
             </Link>
           </li>
