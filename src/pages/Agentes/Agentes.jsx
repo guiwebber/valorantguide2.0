@@ -37,9 +37,9 @@ function Agentes() {
               onClick={() => handleClick(agente)} // Ao clicar, abre o modal
             >
               <h1 className="nameAgente">{agente.displayName}</h1>
-              <img className="imgAgente" src={agente.fullPortraitV2} alt="" />
+              <img className="imgAgente" src={agente.fullPortraitV2} loading="lazy"  alt="" />
               <p>{agente.role.displayName}</p>
-              <img className="imgRole" src={agente.role.displayIcon} alt="" />
+              <img className="imgRole" src={agente.role.displayIcon} loading="lazy"  alt="" />
             </div>
           );
         })}

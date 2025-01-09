@@ -20,7 +20,7 @@ function Armas() {
   };
 
   const handleCloseModal = () => {
-    setSelectedArma(null); // Fecha o modal, limpando o agente selecionado
+    setSelectedArma(null);
   };
 
   console.log(armas);
@@ -31,12 +31,17 @@ function Armas() {
         {armas.map((arma) => {
           const price = arma.shopData ? arma.shopData.cost : "0";
           return (
-            <div  className="divArmas" onClick={() => handleClick(arma)} key={arma.uuid}>
+            <div
+              className="divArmas"
+              onClick={() => handleClick(arma)}
+              key={arma.uuid}
+            >
               <h1 className="nomeArma">{arma.displayName}</h1>
               <img
                 className="imgArma"
                 src={arma.displayIcon}
                 alt={arma.DisplayName}
+                loading="lazy"
               />
               <p className="preco">
                 <b>Price:</b> {price}

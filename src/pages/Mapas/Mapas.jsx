@@ -58,13 +58,13 @@ function Armas() {
                     className="imgMapa"
                     src={mapa.splash}
                     alt={mapa.displayName}
-                    loading="lazy" // Lazy loading aqui
+                    loading="lazy" 
                   />
                   <img
                     className="mapaAberto"
                     src={mapa.displayIcon}
                     alt={mapa.displayName}
-                    loading="lazy" // Lazy loading aqui
+                    loading="lazy" 
                   />
                 </div>
               </div>
@@ -83,7 +83,7 @@ function Armas() {
                     className="imgMapa"
                     src={mapa.splash}
                     alt={mapa.displayName}
-                    loading="lazy" // Lazy loading aqui
+                    loading="lazy" 
                   />
                 </div>
               );
