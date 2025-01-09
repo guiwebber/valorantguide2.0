@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import "./Agentes.css";
 
 function Agentes() {
@@ -14,8 +14,12 @@ function Agentes() {
     fetchdata();
   }, []);
 
-  const agentes =
-    data.data?.filter((agente) => agente.isPlayableCharacter === true) || [];
+  // Memoizando a lista de agentes filtrados
+  const agentes = useMemo(() => {
+    return (
+      data.data?.filter((agente) => agente.isPlayableCharacter === true) || []
+    );
+  }, [data.data]); // Recalcular somente quando os dados mudarem
 
   const handleClick = (agente) => {
     setSelectedAgent(agente); // Atualiza o estado com o agente clicado
@@ -37,9 +41,19 @@ function Agentes() {
               onClick={() => handleClick(agente)} // Ao clicar, abre o modal
             >
               <h1 className="nameAgente">{agente.displayName}</h1>
-              <img className="imgAgente" src={agente.fullPortraitV2} loading="lazy"  alt="" />
+              <img
+                className="imgAgente"
+                src={agente.fullPortraitV2}
+                loading="lazy"
+                alt={agente.displayName}
+              />
               <p>{agente.role.displayName}</p>
-              <img className="imgRole" src={agente.role.displayIcon} loading="lazy"  alt="" />
+              <img
+                className="imgRole"
+                src={agente.role.displayIcon}
+                loading="lazy"
+                alt={agente.role.displayName}
+              />
             </div>
           );
         })}
