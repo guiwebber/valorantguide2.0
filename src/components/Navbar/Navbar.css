@@ -116,6 +116,7 @@
 
 .mobOpen {
   display: none;
+  overflow: hidden;
 }
 
 .divHamburguer {
@@ -263,9 +264,10 @@
   }
 
   .true {
-    height: 93.4vh;
+    height: 100vh;
     flex-direction: column;
     transition: 0.5s;
+    overflow: hidden !important;
   }
 
   .false .nav {

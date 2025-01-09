@@ -1,31 +1,40 @@
 import React, { useState, useEffect } from "react";
-
 import { Link } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
-
 import "./Navbar.css";
+
 function Navbar() {
-  const [isChecked, setIsChecked] = useState(false); // Estado para controlar o checkbox
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = (e) => {
-    setIsChecked(e.target.checked); // Atualiza o estado baseado no checkbox
+    setIsChecked(e.target.checked);
   };
 
   function handleMobOpen() {
-      setIsChecked(false)
-    
+    setIsChecked(false);
   }
 
+  // Impede o scroll quando o menu estiver aberto
   useEffect(() => {
     if (isChecked) {
       document.body.style.overflow = "hidden"; // Bloqueia o scroll
     } else {
       document.body.style.overflow = "auto"; // Permite o scroll
     }
+
+    // Limpeza do efeito quando o componente for desmontado
+    return () => {
+      document.body.style.overflow = "auto"; // Garante que o scroll esteja disponível quando o componente for removido da DOM
+    };
   }, [isChecked]); // A dependência é o isChecked
 
+  // Função para impedir a propagação do evento de clique
+  const handleStopPropagation = (e) => {
+    e.stopPropagation();
+  };
+
   return (
-    <div className={`containerNavbar containerMobile ${isChecked}`}>
+    <div className={`containerNavbar containerMobile ${isChecked ? 'true' : 'false'}`}>
       <div className="divLogo">
         <Link className="logo" to="/">
           <p>VALORANT</p>
@@ -70,7 +79,6 @@ function Navbar() {
 
       <div className="download">
         <button className="btnDownload">
-          {" "}
           <a href="#">
             <FaDownload className="iconDownload" />
             Download
@@ -82,13 +90,17 @@ function Navbar() {
         <input
           type="checkbox"
           className="inputHamburguer"
-          checked={isChecked} // Aplica o estado ao checkbox
-          onChange={handleCheckboxChange} // Define o evento para mudança
+          checked={isChecked}
+          onChange={handleCheckboxChange}
         />
         <span className="menuHamburguer"></span>
       </div>
 
-      <div className="mobOpen">
+      {/* Adicionando o evento de stopPropagation ao menu mobile */}
+      <div
+        className={`mobOpen ${isChecked ? 'show' : ''}`}
+        onClick={handleStopPropagation} // Impede que o clique no menu mobile afete o scroll
+      >
         <div className="nav">
           <ul className="navList">
             <li>
