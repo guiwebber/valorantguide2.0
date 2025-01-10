@@ -28,6 +28,7 @@ function Agentes() {
   const handleCloseModal = () => {
     setSelectedAgent(null); // Fecha o modal, limpando o agente selecionado
   };
+  console.log(agentes);
 
   return (
     <div className="container">
@@ -71,6 +72,21 @@ function Agentes() {
             <h1 className="nameAgenteModal">{selectedAgent.displayName}</h1>
             <p>{selectedAgent.role.displayName}</p>
             <p>{selectedAgent.description}</p>
+            <div className="habilidades">
+              {selectedAgent.abilities
+                .filter((habilidade) => habilidade.slot !== "Passive")
+                .map((habilidade, index) => (
+                  <div key={index} className="umaHabilidade">
+                    <img
+                      className="iconHabilidade"
+                      src={habilidade.displayIcon}
+                      alt=""
+                    />
+                    <p>{habilidade.displayName}</p>
+                  </div>
+                ))}
+            </div>
+
             <button className="btnFechar" onClick={handleCloseModal}>
               Fechar
             </button>

@@ -144,11 +144,29 @@
   background-color: var(--primary-color);
 }
 
+.iconHabilidade {
+  width: 40px;
+}
+
+.habilidades {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+.umaHabilidade {
+  margin: 10px;
+}
+
 
 @media (max-width:1000px) {
 
   .containerAgentes {
     margin-top: 30px;
+  }
+  .conteudoModal {
+    width: 90%;
+    font-size: 0.9rem;
   }
   
 }
