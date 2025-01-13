@@ -38,9 +38,9 @@
 
 @media (max-width: 1000px) {
   .containerRanks {
-    margin-top: 100px;
+    margin-top: 10px;
   }
-
+ 
   .divRanks {
     flex-basis: 45%;
   }

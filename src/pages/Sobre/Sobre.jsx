@@ -4,7 +4,7 @@ import Simbolo from "../../assets/logovalo.png";
 function Armas() {
   return (
     <div className="containerSobre">
-      <h1>About</h1>
+      <h1 className="nameSection">About</h1>
       <div className="textoSobre">
         <p>
           Valorant is a tactical first-person shooter (FPS) game developed and

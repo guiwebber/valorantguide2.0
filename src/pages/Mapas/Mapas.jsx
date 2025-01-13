@@ -53,7 +53,7 @@ function Mapas() {
   return (
     <div className="containerMainMaps">
       <div className="container">
-        <h1>Competitive maps</h1>
+        <h1 className="nameSection">Competitive maps</h1>
         
         {loadingData && <p className="msgCarregando">Carregando...</p>} 
         {!loadingData && loadingImages} 
@@ -85,7 +85,7 @@ function Mapas() {
         </div>
 
         <div className="container">
-          <h1>Team deathmatch maps</h1>
+          <h1 className="nameSection">Team deathmatch maps</h1>
           
           {!loadingData && loadingImages}
 

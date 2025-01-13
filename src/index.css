@@ -44,8 +44,11 @@ html {
 
 @media (max-width:1000px) {
   .msgCarregando {
-    margin: 20px;
+    margin: 50px auto;
     font-size: 2rem;
     color: #FFF;
+  }
+  .nameSection {
+    margin: 100px auto 0px auto;
   }
 }

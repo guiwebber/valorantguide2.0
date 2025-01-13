@@ -36,7 +36,7 @@ function Armas() {
 
   return (
     <div className="container">
-      <h1>Ranks</h1>
+      <h1 className="nameSection">Ranks</h1>
 
       {loadingData && <p className="msgCarregando">Carregando...</p>} {/* Mensagem de carregamento dos dados */}
 

@@ -33,7 +33,7 @@ function Armas() {
 
   return (
     <div className="container">
-      <h1>Guns</h1>
+      <h1 className="nameSection">Guns</h1>
 
       {loadingData && <p className="msgCarregando">Carregando...</p>} 
 

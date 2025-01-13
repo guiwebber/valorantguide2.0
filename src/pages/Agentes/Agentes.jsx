@@ -39,7 +39,7 @@ function Agentes() {
 
   return (
     <div className="container">
-      <h1>Agents</h1>
+      <h1 className="nameSection">Agents</h1>
       {loading && <p className="msgCarregando">Carregando...</p>}
 
       <div className="containerAgentes">
