@@ -6,7 +6,7 @@ function Armas() {
   const [selectedArma, setSelectedArma] = useState(null);
   const [loadingData, setLoadingData] = useState(true);
   const [loadingImages, setLoadingImages] = useState(true);
-  const [skinIndex, setSkinIndex] = useState(0); // Armazenar o índice da skin selecionada
+  const [skinIndex, setSkinIndex] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +22,7 @@ function Armas() {
 
   const handleClick = (arma) => {
     setSelectedArma(arma);
-    setSkinIndex(0); // Resetando o índice da skin quando uma nova arma for selecionada
+    setSkinIndex(0);
   };
 
   const handleCloseModal = () => {
@@ -34,45 +34,38 @@ function Armas() {
   };
 
   const handleLeftClick = (e) => {
-    e.stopPropagation(); // Impede que o clique se propague para o modal
+    e.stopPropagation();
     if (selectedArma && selectedArma.skins.length > 0) {
-      setSkinIndex((prevIndex) => Math.max(0, prevIndex - 1)); // Navegar para a skin anterior
+      setSkinIndex((prevIndex) => Math.max(0, prevIndex - 1));
     }
   };
 
   const handleRightClick = (e) => {
-    e.stopPropagation(); // Impede que o clique se propague para o modal
+    e.stopPropagation();
     if (selectedArma && selectedArma.skins.length > 0) {
       setSkinIndex((prevIndex) =>
         Math.min(selectedArma.skins.length - 1, prevIndex + 1)
-      ); // Navegar para a próxima skin
+      );
     }
   };
 
-  // Função para garantir que a skin selecionada seja válida
   const isValidSkin = (skin) => {
-    const standardSkinName = `Standard ${selectedArma?.displayName}`; // "Standard <nome da arma>"
+    const standardSkinName = `Standard ${selectedArma?.displayName}`;
     return (
       skin.displayName !== "Random Favorite Skin" &&
       skin.displayIcon !== null &&
-      skin.displayName !== standardSkinName // Verifica se a skin não é a padrão
+      skin.displayName !== standardSkinName
     );
   };
 
-  // Função para obter a próxima skin válida
   const getValidSkin = (index) => {
     let nextIndex = index;
     let skin = selectedArma.skins[nextIndex];
 
-    // Loop até encontrar uma skin válida ou sair do índice
-    while (
-      skin &&
-      !isValidSkin(skin) // Se a skin não for válida, pega a próxima
-    ) {
+    while (skin && !isValidSkin(skin)) {
       nextIndex = nextIndex + 1;
       skin = selectedArma.skins[nextIndex];
 
-      // Se chegar no final da lista de skins, volta para o primeiro índice
       if (!skin) {
         nextIndex = 0;
         skin = selectedArma.skins[nextIndex];
@@ -82,7 +75,11 @@ function Armas() {
     return nextIndex;
   };
 
-  console.log(armas);
+  const isLeftDisabled = skinIndex === 0;
+  const isRightDisabled = skinIndex === (selectedArma?.skins.length - 1);
+
+  // console.log(armas);
+  console.log(skinIndex);
 
   return (
     <div className="container">
@@ -117,7 +114,8 @@ function Armas() {
 
       {selectedArma && (
         <div className="modal" onClick={handleCloseModal}>
-          <button className="leftButton" onClick={handleLeftClick}>
+          
+          <button disabled={isLeftDisabled} className="btnSkins btnLeft" onClick={handleLeftClick}>
             ←
           </button>
           <div className="conteudoModal">
@@ -125,26 +123,31 @@ function Armas() {
               (() => {
                 const validSkinIndex = getValidSkin(skinIndex);
                 const validSkin = selectedArma.skins[validSkinIndex];
-
-                return validSkin ? (
-                  <img
-                    className="modalImg"
-                    src={validSkin.displayIcon}
-                    alt={validSkin.displayName}
-                  />
-                ) : (
-                  <p>No valid skin available.</p>
+                
+                return (
+                  validSkin && (
+                    <>
+                      <img
+                        className="modalImg"
+                        src={validSkin.displayIcon}
+                        alt={validSkin.displayName}
+                      />
+                      <h1 className="nameAgenteModal">
+                        {selectedArma.displayName}
+                      </h1>
+                      <p>{validSkin.displayName}</p>
+                    </>
+                  )
                 );
               })()
             ) : (
-              <p>No skins available for this weapon.</p>
+              <p>No skins available</p>
             )}
-            <h1 className="nameAgenteModal">{selectedArma.displayName}</h1>
             <button className="btnFechar" onClick={handleCloseModal}>
               Fechar
             </button>
           </div>
-          <button className="rightButton" onClick={handleRightClick}>
+          <button disabled={isRightDisabled} className="btnSkins" onClick={handleRightClick}>
             →
           </button>
         </div>

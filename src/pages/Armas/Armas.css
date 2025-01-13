@@ -43,8 +43,6 @@
   margin: 20px;
 }
 
-
-
 /* Estilos do Modal */
 .modal {
   position: fixed;
@@ -72,7 +70,7 @@
   position: absolute;
   bottom: 20px;
   background-color: var(--primary-color);
-  
+
   left: 0;
   right: 0;
   margin: auto;
@@ -83,8 +81,10 @@
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  max-width: 600px;
+  width: 40%;
   position: relative;
+  min-height: 40vh;
+  max-width: 60vh;
 }
 .conteudoModal p {
   color: white;
@@ -95,8 +95,10 @@
 }
 
 .modalImg {
-  width: 100%;
-  max-width: 400px;
+  width: auto;
+  height: 25vh;
+  width: 40%;
+  object-fit: contain;
 }
 
 .btnFechar {
@@ -109,6 +111,61 @@
   cursor: pointer;
 }
 
-.btnFechar:hover {
+.btnSkins {
+  margin: 20px;
+  padding: 10px;
   background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: 0.2s;
+}
+.btnSkins:hover,
+.btnFechar:hover {
+  background-color: rgb(156, 45, 56) !important;
+}
+
+.nomeArma {
+  position: relative;
+  width: min-content;
+  height: auto;
+}
+
+.nomeArma::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  transition: 0.5s;
+  box-shadow: 1px 1px 100px var(--primary-color);
+  box-shadow: 0px -2px 10px var(--primary-color);
+}
+.divArmas:hover > .nomeArma {
+  color: var(--primary-color);
+  transition: 0.5s;
+}
+
+.divArmas:hover > .nomeArma::after {
+  width: 80%;
+  margin: auto;
+}
+
+.divArmas:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.divArmas:hover > h1 {
+  color: var(--primary-color);
+}
+
+.btnSkins:disabled,
+.btnSkins:disabled:hover {
+  background-color: grey !important;
+  cursor: initial !important;
 }
