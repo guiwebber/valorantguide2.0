@@ -37,7 +37,7 @@ function Navbar() {
           </li>
           <li>
             <Link onClick={handleMobOpen} className="linksNav" to="/armas">
-              Guns
+              Weapons
             </Link>
           </li>
           <li>
