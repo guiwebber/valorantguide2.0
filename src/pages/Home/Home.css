@@ -3,7 +3,8 @@
   width: 100%;
   align-items: center;
   background-color: var(--secondary-color);
-  margin-top: 4px;
+  position: relative;
+  margin-top: 3px;
 }
 
 .containerHome .textHome {
@@ -80,8 +81,7 @@
     justify-content: center;
     align-items: center;
     max-width: 100%;
-
-    overflow-x: hidden;
+    overflow: hidden;
   }
   .containerHome .textHome {
     width: 80%;
@@ -96,6 +96,12 @@
     justify-content: center;
     align-items: center;
     margin: 20px;
+    height: 84vh;
+    border: 1px solid red;
+    overflow: hidden !important;
+  }
+  .fundoVideo {
+    height: 100vh;
   }
 }
 @media (max-width: 650px) {

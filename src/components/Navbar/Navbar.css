@@ -5,6 +5,7 @@
   height: 80px;
   align-items: center;
   border-bottom: 5px solid var(--primary-color);
+  z-index: 220 !important;
 }
 
 .divLogo .logo,
