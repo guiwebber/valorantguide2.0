@@ -32,17 +32,17 @@ function Navbar() {
           </li>
           <li>
             <Link onClick={handleMobOpen} className="linksNav" to="/agentes">
-              Agentes
+              Agents
             </Link>
           </li>
           <li>
             <Link onClick={handleMobOpen} className="linksNav" to="/armas">
-              Armas
+              Guns
             </Link>
           </li>
           <li>
             <Link onClick={handleMobOpen} className="linksNav" to="/mapas">
-              Mapas
+              Maps
             </Link>
           </li>
           <li>
@@ -52,7 +52,7 @@ function Navbar() {
           </li>
           <li>
             <Link onClick={handleMobOpen} className="linksNav" to="/sobre">
-              Sobre
+              About
             </Link>
           </li>
         </ul>
@@ -87,17 +87,17 @@ function Navbar() {
             </li>
             <li>
               <Link className="linksNav" to="/agentes">
-                Agentes
+                Agents
               </Link>
             </li>
             <li>
               <Link className="linksNav" to="/armas">
-                Armas
+                Guns
               </Link>
             </li>
             <li>
               <Link className="linksNav" to="/mapas">
-                Mapas
+                Maps
               </Link>
             </li>
             <li>
@@ -107,7 +107,7 @@ function Navbar() {
             </li>
             <li>
               <Link className="linksNav" to="/sobre">
-                Sobre
+                About
               </Link>
             </li>
           </ul>

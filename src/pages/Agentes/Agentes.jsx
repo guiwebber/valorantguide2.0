@@ -3,52 +3,63 @@ import "./Agentes.css";
 
 function Agentes() {
   const [data, setData] = useState([]);
-  const [selectedAgent, setSelectedAgent] = useState(null); // Novo estado para armazenar o agente selecionado
+  const [selectedAgent, setSelectedAgent] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchdata = async () => {
+    const fetchData = async () => {
+      setLoading(true); // Começa o carregamento
       const response = await fetch("https://valorant-api.com/v1/agents");
       const result = await response.json();
       setData(result);
+      setLoading(false); // Finaliza o carregamento assim que os dados são obtidos
     };
-    fetchdata();
+    fetchData();
   }, []);
 
-  // Memoizando a lista de agentes filtrados
   const agentes = useMemo(() => {
     return (
       data.data?.filter((agente) => agente.isPlayableCharacter === true) || []
     );
-  }, [data.data]); // Recalcular somente quando os dados mudarem
+  }, [data.data]);
 
   const handleClick = (agente) => {
-    setSelectedAgent(agente); // Atualiza o estado com o agente clicado
+    setSelectedAgent(agente);
   };
 
   const handleCloseModal = () => {
-    setSelectedAgent(null); // Fecha o modal, limpando o agente selecionado
+    setSelectedAgent(null);
   };
+
+  const handleImageLoad = () => {
+    setLoading(false); // Marcar o carregamento como concluído quando a imagem for carregada
+  };
+
   console.log(agentes);
 
   return (
     <div className="container">
-      <h1>Agentes</h1>
+      <h1>Agents</h1>
+      {loading && <p className="msgCarregando">Carregando...</p>}
+
       <div className="containerAgentes">
         {agentes.map((agente) => {
           return (
             <div
               className={`divAgente ${agente.role.displayName}`}
               key={agente.uuid}
-              onClick={() => handleClick(agente)} // Ao clicar, abre o modal
+              onClick={() => handleClick(agente)}
             >
               <h1 className="nameAgente">{agente.displayName}</h1>
+              <img className="backgroundAgente" src={agente.background} alt="" />
               <img
                 className="imgAgente"
                 src={agente.fullPortraitV2}
                 loading="lazy"
                 alt={agente.displayName}
+                onLoad={handleImageLoad}
               />
-              <p>{agente.role.displayName}</p>
+              <p className="role">{agente.role.displayName}</p>
               <img
                 className="imgRole"
                 src={agente.role.displayIcon}
@@ -60,7 +71,6 @@ function Agentes() {
         })}
       </div>
 
-      {/* Modal */}
       {selectedAgent && (
         <div className="modal" onClick={handleCloseModal}>
           <div className="conteudoModal" onClick={(e) => e.stopPropagation()}>
@@ -68,9 +78,9 @@ function Agentes() {
               className="modalImg"
               src={selectedAgent.fullPortraitV2}
               alt={selectedAgent.displayName}
+              onLoad={handleImageLoad}
             />
             <h1 className="nameAgenteModal">{selectedAgent.displayName}</h1>
-            <p>{selectedAgent.role.displayName}</p>
             <p>{selectedAgent.description}</p>
             <div className="habilidades">
               {selectedAgent.abilities
@@ -88,7 +98,7 @@ function Agentes() {
             </div>
 
             <button className="btnFechar" onClick={handleCloseModal}>
-              Fechar
+              Close
             </button>
           </div>
         </div>

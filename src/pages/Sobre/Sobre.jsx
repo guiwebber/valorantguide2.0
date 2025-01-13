@@ -4,24 +4,23 @@ import Simbolo from "../../assets/logovalo.png";
 function Armas() {
   return (
     <div className="containerSobre">
-      <h1>Sobre</h1>
+      <h1>About</h1>
       <div className="textoSobre">
         <p>
-          Valorant é um jogo de tiro tático em primeira pessoa (FPS)
-          desenvolvido e publicado pela Riot Games. Lançado oficialmente em
-          2020, o jogo combina mecânicas tradicionais de tiro com habilidades
-          únicas de personagens, chamados "Agentes". Cada Agente possui
-          habilidades distintas que podem ser usadas estrategicamente durante o
-          jogo, criando uma experiência de jogo dinâmica e tática. O jogo é
-          focado em partidas 5v5, onde os jogadores assumem o papel de atacantes
-          ou defensores. Os atacantes devem plantar uma bomba (chamada "Spike"),
-          enquanto os defensores tentam impedi-los. O objetivo é vencer rodadas,
-          adquirindo dinheiro com base no desempenho e comprando armas e
-          habilidades entre as rodadas. Valorant é conhecido por seu alto nível
-          competitivo e foco na precisão, estratégia e trabalho em equipe. Com
-          um design visual inspirado em mapas táticos e uma mecânica de jogo
-          precisa, o jogo tem atraído uma enorme comunidade de jogadores e uma
-          cena de eSports crescente.
+          Valorant is a tactical first-person shooter (FPS) game developed and
+          published by Riot Games. Officially released in 2020, the game
+          combines traditional shooting mechanics with unique character
+          abilities, known as "Agents." Each Agent has distinct abilities that
+          can be used strategically during the game, creating a dynamic and
+          tactical gameplay experience. The game focuses on 5v5 matches, where
+          players take on the roles of attackers or defenders. The attackers
+          must plant a bomb (called the "Spike"), while the defenders try to
+          prevent them. The objective is to win rounds, earning money based on
+          performance and buying weapons and abilities between rounds. Valorant
+          is known for its high level of competitiveness and focus on precision,
+          strategy, and teamwork. With a visual design inspired by tactical maps
+          and precise gameplay mechanics, the game has attracted a large player
+          community and a growing eSports scene.
         </p>
       </div>
       <img className="simbolo" src={Simbolo} alt="" />

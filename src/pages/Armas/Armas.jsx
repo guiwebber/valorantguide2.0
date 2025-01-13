@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Armas.css";
-import { useEffect, useState } from "react";
+
 function Armas() {
   const [data, setData] = useState([]);
   const [selectedArma, setSelectedArma] = useState(null);
+  const [loadingData, setLoadingData] = useState(true);  
+  const [loadingImages, setLoadingImages] = useState(true);  
 
   useEffect(() => {
-    const fetchdata = async () => {
+    const fetchData = async () => {
       const response = await fetch("https://valorant-api.com/v1/weapons");
       const result = await response.json();
       setData(result);
+      setLoadingData(false);  
     };
-    fetchdata();
+    fetchData();
   }, []);
+
   const armas = data.data || [];
 
   const handleClick = (arma) => {
@@ -23,10 +27,17 @@ function Armas() {
     setSelectedArma(null);
   };
 
-  console.log(armas);
+  const handleImageLoad = () => {
+    setLoadingImages(false);  
+  };
+
   return (
     <div className="container">
-      <h1>Armas</h1>
+      <h1>Guns</h1>
+
+      {loadingData && <p className="msgCarregando">Carregando...</p>} 
+
+
       <div className="containerArmas">
         {armas.map((arma) => {
           const price = arma.shopData ? arma.shopData.cost : "0";
@@ -40,8 +51,9 @@ function Armas() {
               <img
                 className="imgArma"
                 src={arma.displayIcon}
-                alt={arma.DisplayName}
+                alt={arma.displayName}
                 loading="lazy"
+                onLoad={handleImageLoad}  
               />
               <p className="preco">
                 <b>Price:</b> {price}
@@ -50,8 +62,6 @@ function Armas() {
           );
         })}
       </div>
-
-      {/* MODAL */}
 
       {selectedArma && (
         <div className="modal" onClick={handleCloseModal}>

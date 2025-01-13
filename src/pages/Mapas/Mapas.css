@@ -40,6 +40,12 @@
   margin: auto;
 }
 
+.msgCarregando {
+  margin: 100px;
+  font-size: 3rem;
+  color: #FFF;
+}
+
 @media (max-width: 1000px) {
   .containerMapas {
     margin-top: 40px;
