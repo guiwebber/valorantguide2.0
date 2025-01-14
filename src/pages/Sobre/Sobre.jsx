@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Sobre.css";
 import Simbolo from "../../assets/logovalo.png";
+
+
 function Armas() {
+
+ 
+
   return (
     <div className="containerSobre">
       <h1 className="nameSection">About</h1>

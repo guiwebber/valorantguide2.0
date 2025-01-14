@@ -3,8 +3,8 @@ import "./Ranks.css";
 
 function Armas() {
   const [data, setData] = useState([]);
-  const [loadingData, setLoadingData] = useState(true); // Estado para o carregamento dos dados
-  const [loadingImages, setLoadingImages] = useState(true); // Estado para o carregamento das imagens
+  const [loadingData, setLoadingData] = useState(true); 
+  const [loadingImages, setLoadingImages] = useState(true); 
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -13,7 +13,7 @@ function Armas() {
       );
       const result = await response.json();
       setData(result);
-      setLoadingData(false); // Dados carregados
+      setLoadingData(false); 
     };
     fetchdata();
   }, []);
@@ -31,28 +31,36 @@ function Armas() {
   });
 
   const handleImageLoad = () => {
-    setLoadingImages(false); // Quando as imagens forem carregadas, altera o estado
+    setLoadingImages(false); 
   };
 
+  console.log(ranks)
   return (
     <div className="container">
       <h1 className="nameSection">Ranks</h1>
 
-      {loadingData && <p className="msgCarregando">Carregando...</p>} {/* Mensagem de carregamento dos dados */}
+      {loadingData && <p className="msgCarregando">Carregando...</p>} 
 
       <div className="containerRanks">
         {tiersFiltered.map((tier, index) => {
+          console.log(tier.backgroundColor)
           return (
-            <div className="divRanks" key={index}>
+            <div className="divRanks" style={{ backgroundColor: '#'+tier.backgroundColor }} key={index}>
+              <div className="textName">
+
               <h1 className="nameRanks">{tier.tierName}</h1>
+              </div>
+              <div className="divImgRanks">
+
               <img
                 className="imgRanks"
                 src={tier.largeIcon}
                 loading="lazy"
                 alt="Imagem dos ranks"
-                onLoad={handleImageLoad} // Avisa quando a imagem for carregada
-              />
-              {loadingImages && <p>Carregando imagens...</p>} {/* Mensagem de carregamento das imagens */}
+                onLoad={handleImageLoad}
+                />
+                </div>
+              {loadingImages && <p>Carregando imagens...</p>} 
               <p className="textTier">
                 Tier: <span className="red">{tier.tier - 2}</span>
               </p>

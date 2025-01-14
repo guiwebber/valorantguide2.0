@@ -11,7 +11,6 @@
   text-align: center;
   margin: 20px;
   padding: 20px;
-  border: 3px solid var(--primary-color);
   background-color: var(--third-color);
   color: #FFF;
   border-radius: 30px;
@@ -27,15 +26,40 @@
   width: 200px;
 }
 
-.textTier {
-  font-size: 1.3rem;
-  margin: 10px;
-}
+
 
 .red {
   color: var(--primary-color);
 }
 
+.divImgRanks
+{
+  background-color: var(--secondary-color);
+  margin: 10px auto;
+  height: 250px;
+  width: 250px;
+  border-radius: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textName {
+  background-color: var(--secondary-color);
+  width: fit-content;
+  margin: 10px auto;
+  height: 70px;
+  border-radius: 20px;
+}
+  .textTier {
+    font-size: 1.3rem;
+    margin: 10px;
+    background-color: var(--secondary-color);
+    width: fit-content;
+    margin: auto;
+    padding: 15px;
+    border-radius: 20px;
+  }
 @media (max-width: 1000px) {
   .containerRanks {
     margin-top: 10px;

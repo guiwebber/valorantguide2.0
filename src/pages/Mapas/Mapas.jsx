@@ -3,15 +3,15 @@ import "./Mapas.css";
 
 function Mapas() {
   const [data, setData] = useState([]);
-  const [loadingData, setLoadingData] = useState(true);  // Estado para o carregamento dos dados
-  const [loadingImages, setLoadingImages] = useState(true);  // Estado para o carregamento das imagens
+  const [loadingData, setLoadingData] = useState(true);  
+  const [loadingImages, setLoadingImages] = useState(true);  
 
   useEffect(() => {
     const fetchdata = async () => {
       const response = await fetch("https://valorant-api.com/v1/maps");
       const result = await response.json();
       setData(result);
-      setLoadingData(false);  // Dados carregados
+      setLoadingData(false);  
     };
     fetchdata();
   }, []);
@@ -47,9 +47,9 @@ function Mapas() {
     ) || [];
 
   const handleImageLoad = () => {
-    setLoadingImages(false);  // Quando as imagens carregarem, altera o estado
+    setLoadingImages(false);  
   };
-
+console.log(mapas)
   return (
     <div className="containerMainMaps">
       <div className="container">
@@ -76,7 +76,7 @@ function Mapas() {
                     src={mapa.displayIcon}
                     alt={mapa.displayName}
                     loading="lazy"
-                    onLoad={handleImageLoad}  // Avisa que a imagem foi carregada
+                    onLoad={handleImageLoad}  
                   />
                 </div>
               </div>
@@ -99,7 +99,7 @@ function Mapas() {
                     src={mapa.splash}
                     alt={mapa.displayName}
                     loading="lazy"
-                    onLoad={handleImageLoad}  // Avisa que a imagem foi carregada
+                    onLoad={handleImageLoad}  
                   />
                 </div>
               );

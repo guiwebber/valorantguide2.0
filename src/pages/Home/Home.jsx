@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import brim from "../../assets/brim.png";
 import video from "../../assets/video.mp4";
 function Home() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchdata = async () => {
+      const response = await fetch("https://valorant-api.com/v1/events");
+      const result = await response.json();
+      setData(result);
+    };
+    fetchdata();
+    console.log(data.data);
+  }, []);
   return (
     <div className="containerHome">
       <div className="subContainer">
