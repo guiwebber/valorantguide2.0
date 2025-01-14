@@ -4,15 +4,15 @@ import "./Agentes.css";
 function Agentes() {
   const [data, setData] = useState([]);
   const [selectedAgent, setSelectedAgent] = useState(null);
-  const [loading, setLoading] = useState(true);
+    const [loadingData, setLoadingData] = useState(true);
+    const [loadingImages, setLoadingImages] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true); // Começa o carregamento
       const response = await fetch("https://valorant-api.com/v1/agents");
       const result = await response.json();
       setData(result);
-      setLoading(false); // Finaliza o carregamento assim que os dados são obtidos
+      setLoadingData(false); // Finaliza o carregamento assim que os dados são obtidos
     };
     fetchData();
   }, []);
@@ -32,7 +32,7 @@ function Agentes() {
   };
 
   const handleImageLoad = () => {
-    setLoading(false); // Marcar o carregamento como concluído quando a imagem for carregada
+    setLoadingImages(false); 
   };
 
   console.log(agentes);
@@ -40,7 +40,7 @@ function Agentes() {
   return (
     <div className="container">
       <h1 className="nameSection">Agents</h1>
-      {loading && <p className="msgCarregando">Carregando...</p>}
+      {loadingData && <p className="msgCarregando">Carregando...</p>}
 
       <div className="containerAgentes">
         {agentes.map((agente) => {
@@ -51,7 +51,11 @@ function Agentes() {
               onClick={() => handleClick(agente)}
             >
               <h1 className="nameAgente">{agente.displayName}</h1>
-              <img className="backgroundAgente" src={agente.background} alt="" />
+              <img
+                className="backgroundAgente"
+                src={agente.background}
+                alt=""
+              />
               <img
                 className="imgAgente"
                 src={agente.fullPortraitV2}
