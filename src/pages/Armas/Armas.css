@@ -84,7 +84,7 @@
   width: 40%;
   position: relative;
   min-height: 40vh;
-  max-width: 60vh;
+  max-height: 60vh;
 }
 .conteudoModal p {
   color: white;
@@ -168,4 +168,29 @@
 .btnSkins:disabled:hover {
   background-color: grey !important;
   cursor: initial !important;
+}
+
+.btnSkins {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width:1000px) {
+  .modalImg {
+    width: 100% !important;
+  }
+  .conteudoModal {
+    padding: 10px;
+    width: 100% !important;
+  }
+  .btnSkins {
+    margin: 10px !important;
+  }
+}
+@media (max-width:600px) {
+  .btnSkins {
+    font-size: 1rem;
+  }
+  
 }
